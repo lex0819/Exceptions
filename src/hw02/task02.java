@@ -26,9 +26,5 @@ public class task02 {
             System.out.println("Catching exception: " + e);
         }
     }
-    
-    
-    
-    
 
 }

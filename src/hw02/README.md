@@ -61,6 +61,6 @@
 
 Метод **enterString()** выбрасывает исключение через
 
-throw new RuntimeException ()
+**throw new RuntimeException()**
 
 если введена пустая строка.

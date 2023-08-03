@@ -26,5 +26,4 @@ public class task04 {
             return string;
         }
     }
-
 }
