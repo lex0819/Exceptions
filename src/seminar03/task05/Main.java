@@ -11,4 +11,3 @@ public class Main {
         System.out.println(String.format("Summ of all items of arr2D is %s", MyArray2DMethods.sum2D(arr2D)));
     }
 }
-̄
