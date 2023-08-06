@@ -91,7 +91,7 @@ public class Human {
 
     @Override
     public String toString() {
-        return String.format("<%s><%s><%s><%s> <%s><%s>", surName, firstName, fatherName, getBirthday(), phoneNumber, sex);
+        return String.format("<%s><%s><%s><%s><%s><%s>\n", surName, firstName, fatherName, getBirthday(), phoneNumber, sex);
     }
 
 }
