@@ -14,7 +14,6 @@ public class Main {
         Human human = new Human(scanner.nextLine());
 
         System.out.println(human);
-        System.out.println(human.toLineInFile());
 
     }
 }

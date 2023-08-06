@@ -3,9 +3,7 @@ package hw03;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Objects;
 
 public class Human {
@@ -19,18 +17,18 @@ public class Human {
 
     public Human(String inputString){
 
-        List<String> inputArray = List.of(inputString.split(" "));
-        checkArrayLength(inputArray.size());
+        String[] inputArray = inputString.split(" ");
+        checkArrayLength(inputArray.length);
 
-        surName = inputArray.get(0);
-        firstName = inputArray.get(1);
-        fatherName = inputArray.get(2);
+        this.surName = inputArray[0];
+        this.firstName = inputArray[1];
+        this.fatherName = inputArray[2];
 
-        parsDate(inputArray.get(3));
+        parsDate(inputArray[3]);
 
-        parsPhoneNumber(inputArray.get(4));
+        parsPhoneNumber(inputArray[4]);
 
-        parsSex(inputArray.get(5));
+        parsSex(inputArray[5]);
 
     }
 
@@ -69,15 +67,15 @@ public class Human {
 
     private void parsDate(String strDate){
         try{
-            birthday = new SimpleDateFormat("dd.MM.yyyy").parse(strDate);
+            this.birthday = new SimpleDateFormat("dd.MM.yyyy").parse(strDate);
         }catch (ParseException e) {
             throw new CheckDateFormat();
         }
     }
     private void parsPhoneNumber(String strNum){
-        String pattern = "\\d{11}";
+        String pattern = "\\d{11}|\\d{10}";
         if (strNum.matches(pattern)){
-            phoneNumber = strNum;
+            this.phoneNumber = strNum;
         }else {
             throw new CheckPhoneNumber();
         }
@@ -85,7 +83,7 @@ public class Human {
 
     private void parsSex(String str){
         if(Objects.equals(str, "f") || Objects.equals(str, "m")){
-            sex = str.charAt(0);
+            this.sex = str.charAt(0);
         } else {
             throw new CheckSexFormat();
         }
@@ -93,17 +91,7 @@ public class Human {
 
     @Override
     public String toString() {
-        return "Human{" +
-                "Фамилия = '" + surName + '\'' +
-                ", Имя = '" + firstName + '\'' +
-                ", Отчество = '" + fatherName + '\'' +
-                ", день рождения = " + getBirthday() +
-                ", номер телефона = '" + phoneNumber + '\'' +
-                ", пол = " + sex +
-                '}';
-    }
-
-    public String toLineInFile() {
         return String.format("<%s><%s><%s><%s> <%s><%s>", surName, firstName, fatherName, getBirthday(), phoneNumber, sex);
     }
+
 }
